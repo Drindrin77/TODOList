@@ -49,8 +49,8 @@ class TaskListFragment : Fragment() {
         binding.recyclerView.adapter = taskListAdapter
 
         getCurrentNavigationResultLiveData<Task>("newTask")?.observe(viewLifecycleOwner) { task ->
-            Log.d("aze", "azeaze")
             viewModel.editTask(task)
+            removeCurrentNavigationResult<Task>("newTask")
         }
 
         binding.addTaskButton.setOnClickListener {
